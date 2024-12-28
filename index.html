@@ -1,0 +1,21 @@
+<html>
+<head>       
+    <title>RIBWAVV E-mailhandtekening generator</title>
+    <script type="javascript"> 
+        let params = new URLSearchParams(document.location.search);
+
+        function getUrlParameter(parameter){
+            try {
+                return params.get(parameter);
+            } catch (error) {
+                return null;
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <h1>Hello <script>getParameter("firstname")</script></h1>
+
+</body>
+</html>
