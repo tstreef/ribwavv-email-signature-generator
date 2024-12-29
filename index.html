@@ -157,7 +157,9 @@
         </article>
     </main>
 
-    <footer><h5>Conceptversie RIBWAVV e-mailhandtekening generator</h5></footer>
+    <footer>
+        <h5>Conceptversie RIBWAVV e-mailhandtekening generator</h5>
+    </footer>
 
     <script> 
         function getUrlParameter(param, params){
@@ -178,6 +180,7 @@
             output.innerHTML = input.value;
         }
 
+
         function copyToClipboard() {
             let handtekening = document.querySelector('#handtekening-container').innerHTML;
             let blob = new Blob([handtekening], {type: 'text/html'});
@@ -186,22 +189,21 @@
         }
         
 
-
         function initialize(){
             let inputElements = document.querySelectorAll('.input-element');
             let parameterElements = document.querySelectorAll('.url-parameter');
             let parameters = new URLSearchParams(document.location.search);
 
+            // Gegevens uit de parameters tonen op de pagina
             parameterElements.forEach(element => {
                 getUrlParameter(element.id, parameters);
                 setResult(element.id);
             });
 
+            //Zodra de inhoud van een tekstveld wordt gewijzigd dit tonen in de handtekening
             inputElements.forEach(element => {
                 element.addEventListener('input', (event) => {setResult(element.id)});
-            });
-          
-            let copyButton = document.querySelector('#button-kopieren');
+            });          
         }
         
         initialize();
